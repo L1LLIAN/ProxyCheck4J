@@ -20,3 +20,15 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                groupId = "dev.lillian"
+                artifactId = "proxycheck"
+                version = "1.0"
+            }
+        }
+    }
+}
