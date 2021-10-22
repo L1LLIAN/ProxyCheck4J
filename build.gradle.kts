@@ -21,14 +21,15 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            register("release", MavenPublication::class) {
-                groupId = "dev.lillian"
-                artifactId = "proxycheck"
-                version = "1.0"
-            }
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "dev.lillian"
+            artifactId = "proxycheck"
+            version = "1.0"
+
+            from(components["java"])
         }
     }
 }
+
